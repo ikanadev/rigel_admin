@@ -1,11 +1,18 @@
-import { Button } from '@mantine/core';
+import { RouterProvider } from 'react-router-dom';
+import { MantineProvider } from '@mantine/core';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+import router from './routes/router';
+
+const queryClient = new QueryClient();
 
 function App() {
 	return (
-		<div>
-			<h1>Hello world!</h1>
-			<Button>Hey</Button>
-		</div>
+		<MantineProvider withGlobalStyles withNormalizeCSS>
+			<QueryClientProvider client={queryClient}>
+				<RouterProvider router={router} />
+			</QueryClientProvider>
+		</MantineProvider>
 	);
 }
 export default App;
