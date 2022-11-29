@@ -5,8 +5,8 @@ import Home from './Home';
 import Login from './Login';
 
 const router = createBrowserRouter([
-  { path: routes.home(), element: <Home /> },
-  { path: routes.login(), element: <Login /> },
+	{ path: routes.home(), element: <Home /> },
+	{ path: routes.login(), element: <Login /> },
 ]);
 
 export default router;

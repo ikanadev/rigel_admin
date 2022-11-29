@@ -1,7 +1,10 @@
+import { Navigate } from 'react-router-dom';
+import { AppShell } from '@mantine/core';
+import Header from './Header';
+import Navbar from './Navbar';
+
 import { useAdminState } from 'src/store/admin';
 import { routes } from 'src/routes/routes';
-
-import { Navigate } from 'react-router-dom';
 
 const Home = () => {
 	const admin = useAdminState((state) => state.admin);
@@ -9,7 +12,11 @@ const Home = () => {
 	if (admin === null) {
 		return <Navigate to={routes.login()} />;
 	}
-	return <div>Home</div>;
+	return (
+		<AppShell header={<Header />} navbar={<Navbar />}>
+			<div>Content</div>
+		</AppShell>
+	);
 };
 
 export default Home;
