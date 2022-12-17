@@ -35,7 +35,9 @@ const Login = () => {
 		register,
 		handleSubmit,
 		formState: { errors },
-	} = useForm<FormData>();
+	} = useForm<FormData>({
+		defaultValues: { email: 'kevin@gmail.com', password: '123456' },
+	});
 
 	const onSubmit = handleSubmit((data) => {
 		login.mutate(data, {

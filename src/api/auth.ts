@@ -1,4 +1,4 @@
-import { Admin } from 'src/models';
+import { Teacher } from 'src/models';
 
 import { useMutation } from '@tanstack/react-query';
 import { ky } from './ky';
@@ -8,7 +8,7 @@ type LoginReq = {
 	password: string;
 };
 type LoginRes = {
-	teacher: Admin;
+	teacher: Teacher;
 	jwt: string;
 };
 export const useLogin = () =>

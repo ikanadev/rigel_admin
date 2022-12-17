@@ -26,7 +26,7 @@ const AppShell = () => {
 					<Box bg="#fafafa" sx={{ borderRight: '1px solid #dedede' }} w={250}>
 						<Navbar />
 					</Box>
-					<Box sx={{ flex: 1 }} pl="sm" bg="#fff">
+					<Box sx={{ flex: 1 }} p="sm" bg="#fff">
 						<Outlet />
 					</Box>
 				</Flex>

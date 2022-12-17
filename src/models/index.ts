@@ -1,4 +1,4 @@
-export type Admin = {
+export type Teacher = {
 	id: string;
 	name: string;
 	last_name: string;

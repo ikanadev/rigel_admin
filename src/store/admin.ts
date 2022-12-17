@@ -1,14 +1,14 @@
 import create from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 import { devtools } from 'zustand/middleware';
-import { Admin } from '../models';
+import { Teacher } from '../models';
 
 interface AdminState {
-	admin: Admin | null;
+	admin: Teacher | null;
 	token: string;
 }
 interface AdminActions {
-	setAdmin: (admin: Admin) => void;
+	setAdmin: (admin: Teacher) => void;
 	setToken: (token: string) => void;
 }
 
