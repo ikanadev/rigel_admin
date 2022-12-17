@@ -1,4 +1,4 @@
-import { Teacher } from 'src/models';
+import { Teacher, Subscription } from 'src/models';
 
 import { useQuery } from '@tanstack/react-query';
 import { teacherKeys } from './teacherKeys';
@@ -9,6 +9,17 @@ export const useTeachers = () =>
 		queryKey: teacherKeys.list(),
 		queryFn: async (): Promise<Teacher[]> => {
 			const resp = await ky.get('admin/teachers');
+			return await resp.json();
+		},
+	});
+
+type TeacherRes = Teacher & { subscriptions: Subscription[] };
+export const useTeacher = (id: string | undefined) =>
+	useQuery({
+		enabled: !!id,
+		queryKey: teacherKeys.detail(id ?? ''),
+		queryFn: async (): Promise<TeacherRes> => {
+			const resp = await ky.get(`admin/teacher/${id}`);
 			return await resp.json();
 		},
 	});

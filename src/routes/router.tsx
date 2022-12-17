@@ -4,6 +4,7 @@ import { routes } from './routes';
 import AppShell from './AppShell';
 import Login from './Login';
 import Teachers from './Teachers';
+import Teacher from './Teacher';
 import Home from './Home';
 
 const router = createBrowserRouter([
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
 			{
 				path: routes.teachers(),
 				element: <Teachers />,
+			},
+			{
+				path: routes.teacher(':id'),
+				element: <Teacher />,
 			},
 		],
 	},

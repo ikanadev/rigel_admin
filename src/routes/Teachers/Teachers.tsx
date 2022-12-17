@@ -2,9 +2,12 @@ import { Title, Table, Skeleton, Alert, TextInput } from '@mantine/core';
 import React, { useState } from 'react';
 import { Icon } from '@iconify-icon/react';
 
+import { useNavigate } from 'react-router-dom';
 import { useTeachers } from 'src/api/teacher';
+import { routes } from 'src/routes/routes';
 
 const Teachers = () => {
+	const navigate = useNavigate();
 	const teachers = useTeachers();
 	const [search, setSearch] = useState('');
 
@@ -17,15 +20,13 @@ const Teachers = () => {
 	) => {
 		const id = ev.currentTarget.dataset.id;
 		if (!id) return;
-		// TODO: redirect to teacher page
-		console.log(id);
+		navigate(routes.teacher(id));
 	};
 	const handleRowKeyDown = (ev: React.KeyboardEvent<HTMLTableRowElement>) => {
 		if (ev.code === 'Enter' || ev.code === 'Space') {
 			const id = ev.currentTarget.dataset.id;
 			if (!id) return;
-			// TODO: redirect to teacher page
-			console.log(id);
+			navigate(routes.teacher(id));
 		}
 	};
 
