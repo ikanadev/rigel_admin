@@ -41,3 +41,19 @@ export const useAddSubscription = () => {
 		},
 	});
 };
+
+type DeleteSubsReq = {
+	teacher_id: string;
+	subs_id: string;
+};
+export const useDeleteSubscription = () => {
+	const queryClient = useQueryClient();
+	return useMutation({
+		mutationFn: async (data: DeleteSubsReq) => {
+			await ky.delete(`admin/subscription/${data.subs_id}`);
+		},
+		onSuccess: (_, req) => {
+			queryClient.invalidateQueries(teacherKeys.detail(req.teacher_id));
+		},
+	});
+};

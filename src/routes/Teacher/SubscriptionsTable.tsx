@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { Table, Flex, ActionIcon, Text } from '@mantine/core';
 import { Icon } from '@iconify-icon/react';
 import { Subscription } from 'src/models';
@@ -7,8 +7,17 @@ import dayjs from 'dayjs';
 
 type Props = {
 	subscriptions: Subscription[];
+	handleDeleteSubs: (id: string) => void;
 };
-const SubscriptionsTable: FC<Props> = ({ subscriptions }) => {
+const SubscriptionsTable: FC<Props> = ({ subscriptions, handleDeleteSubs }) => {
+	const handleDelete = (
+		ev: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+	) => {
+		const id = ev.currentTarget.dataset.subid;
+		if (!id) return;
+		handleDeleteSubs(id);
+	};
+
 	if (subscriptions.length === 0)
 		return (
 			<Text fs="italic" ta="center" color="gray" my="sm">
@@ -38,7 +47,13 @@ const SubscriptionsTable: FC<Props> = ({ subscriptions }) => {
 								<ActionIcon color="blue" variant="light" aria-label="Edit">
 									<Icon icon="mdi:pencil" width={20} />
 								</ActionIcon>
-								<ActionIcon color="red" variant="light" aria-label="Delete">
+								<ActionIcon
+									color="red"
+									variant="light"
+									aria-label="Delete"
+									data-subid={sub.id}
+									onClick={handleDelete}
+								>
 									<Icon icon="mdi:delete" width={20} />
 								</ActionIcon>
 							</Flex>

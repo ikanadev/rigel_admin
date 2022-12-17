@@ -42,12 +42,19 @@ const SubscriptionForm: FC<Props> = ({ subscriptions }) => {
 
 	const onSubmit = (data: FormData) => {
 		if (!(id && data.year && data.method)) return;
-		addSubscription.mutate({
-			teacher_id: id,
-			year_id: data.year,
-			method: data.method,
-			qtty: parseInt(data.amount, 10),
-		});
+		addSubscription.mutate(
+			{
+				teacher_id: id,
+				year_id: data.year,
+				method: data.method,
+				qtty: parseInt(data.amount, 10),
+			},
+			{
+				onSuccess: () => {
+					formActions.close();
+				},
+			},
+		);
 	};
 
 	if (yearOptions.length === 0) return null;
