@@ -7,6 +7,7 @@ import {
 	Text,
 	Badge,
 } from '@mantine/core';
+import Subscriptions from './Subscriptions';
 
 import { useParams } from 'react-router-dom';
 import { useTeacher } from 'src/api/teacher';
@@ -44,6 +45,7 @@ const Teacher = () => {
 							{teacher.data.is_admin ? 'Admin' : 'Regular'}
 						</Badge>
 					</Flex>
+					<Subscriptions subscriptions={teacher.data.subscriptions} />
 				</>
 			)}
 		</>

@@ -1,6 +1,6 @@
 import { Teacher, Subscription } from 'src/models';
 
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { teacherKeys } from './teacherKeys';
 import { ky } from './ky';
 
@@ -23,3 +23,21 @@ export const useTeacher = (id: string | undefined) =>
 			return await resp.json();
 		},
 	});
+
+type AddSubsReq = {
+	teacher_id: string;
+	year_id: string;
+	method: string;
+	qtty: number;
+};
+export const useAddSubscription = () => {
+	const queryClient = useQueryClient();
+	return useMutation({
+		mutationFn: async (data: AddSubsReq) => {
+			await ky.post('admin/subscription', { json: data });
+		},
+		onSuccess: (_, req) => {
+			queryClient.invalidateQueries(teacherKeys.detail(req.teacher_id));
+		},
+	});
+};

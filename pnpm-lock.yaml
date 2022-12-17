@@ -10,6 +10,7 @@ specifiers:
   '@types/react': ^18.0.24
   '@types/react-dom': ^18.0.8
   '@vitejs/plugin-react': ^2.2.0
+  dayjs: ^1.11.7
   immer: ^9.0.16
   ky: ^0.32.2
   react: ^18.2.0
@@ -26,6 +27,7 @@ dependencies:
   '@mantine/core': 5.8.3_2vc2xgx7q2ij62urx5h5ijvzqm
   '@mantine/hooks': 5.8.3_react@18.2.0
   '@tanstack/react-query': 4.16.1_biqbaboplfbrettd7655fr4n2y
+  dayjs: 1.11.7
   immer: 9.0.16
   ky: 0.32.2
   react: 18.2.0
@@ -858,6 +860,10 @@ packages:
 
   /csstype/3.1.1:
     resolution: {integrity: sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==}
+
+  /dayjs/1.11.7:
+    resolution: {integrity: sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==}
+    dev: false
 
   /debug/4.3.4:
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
