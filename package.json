@@ -9,27 +9,27 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "@mantine/core": "^5.8.3",
-    "@mantine/hooks": "^5.8.3",
-    "@tanstack/react-query": "^4.16.1",
-    "dayjs": "^1.11.7",
-    "immer": "^9.0.16",
+    "@emotion/react": "^11.11.1",
+    "@mantine/core": "^5.10.5",
+    "@mantine/hooks": "^5.10.5",
+    "@tanstack/react-query": "^4.29.12",
+    "dayjs": "^1.11.8",
+    "immer": "^9.0.21",
     "ky": "^0.32.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.39.5",
-    "react-router-dom": "^6.4.3",
-    "zustand": "^4.1.4"
+    "react-hook-form": "^7.44.3",
+    "react-router-dom": "^6.12.1",
+    "zustand": "^4.3.8"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.2",
-    "@iconify-icon/react": "^1.0.1",
-    "@types/react": "^18.0.24",
-    "@types/react-dom": "^18.0.8",
+    "@babel/core": "^7.22.5",
+    "@iconify-icon/react": "^1.0.7",
+    "@types/react": "^18.2.11",
+    "@types/react-dom": "^18.2.4",
     "@vitejs/plugin-react": "^2.2.0",
     "rome": "^10.0.1",
-    "typescript": "^4.6.4",
-    "vite": "^3.2.3"
+    "typescript": "^4.9.5",
+    "vite": "^3.2.7"
   }
 }
