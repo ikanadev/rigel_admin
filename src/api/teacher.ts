@@ -19,7 +19,7 @@ export const useTeacher = (id: string | undefined) =>
 		enabled: !!id,
 		queryKey: teacherKeys.detail(id ?? ''),
 		queryFn: async (): Promise<TeacherRes> => {
-			const resp = await ky.get(`admin/teacher/${id}`);
+			const resp = await ky.get(`admin/teachers/${id}`);
 			return await resp.json();
 		},
 	});
@@ -34,7 +34,7 @@ export const useAddSubscription = () => {
 	const queryClient = useQueryClient();
 	return useMutation({
 		mutationFn: async (data: AddSubsReq) => {
-			await ky.post('admin/subscription', { json: data });
+			await ky.post('admin/subscriptions', { json: data });
 		},
 		onSuccess: (_, req) => {
 			queryClient.invalidateQueries(teacherKeys.detail(req.teacher_id));
@@ -50,7 +50,7 @@ export const useDeleteSubscription = () => {
 	const queryClient = useQueryClient();
 	return useMutation({
 		mutationFn: async (data: DeleteSubsReq) => {
-			await ky.delete(`admin/subscription/${data.subs_id}`);
+			await ky.delete(`admin/subscriptions/${data.subs_id}`);
 		},
 		onSuccess: (_, req) => {
 			queryClient.invalidateQueries(teacherKeys.detail(req.teacher_id));
